@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html >
+<head>
+  
+<style>
+
+h1 {text-align: center;
+display: inline-block;
+margin-left: 25%;
+font-size: 40px;}
+
+button {
+  color: black;  
+  padding: 14px 30px;
+  text-decoration: none;
+  background-color: rgb(180, 177, 177);
+  width: 300px;
+  text-align: center;
+  border:solid 2px black;
+}
+tr{
+  background-color: aliceblue;
+  text-align: center;
+}
+th{
+  background-color: black;
+  color: aliceblue;
+}
+#submit {
+  background-color: rgb(180, 177, 177);
+  width: 300px;
+  padding: 16px;
+  color: black;  
+  border: solid 2px black;
+}
+
+#submit1 {
+  background-color: rgb(180, 177, 177);
+  width: 300px;
+  padding: 16px;
+  color: black;
+}
+
+.container{
+  display:block;
+  padding-top: 24%;
+  padding-left: 39%;
+}
+
+.drop{
+  display:block;
+  padding-top: 5%;
+  padding-left: 25%;
+}
+
+.endc{
+  display:block;
+  padding-top: 5%;
+  padding-left: 39%;
+}
+
+.optdrop{
+  display:block;
+  padding-left: 10%;
+  padding-top: 1%;
+  align-content: center;
+}
+
+
+.optdrop1{
+  padding-top: 1%;
+  padding-left: 10%;
+  display: none;
+}
+
+.optdrop1>button{
+  color: black;  
+  padding: 14px 10px;
+  text-decoration: none;
+  background-color: rgb(180, 177, 177);
+  width: 610px;
+  text-align: center;
+  border:solid 2px black;
+}
+
+.id1 {
+  padding-top: 3%;
+      padding-left: 35%;
+      display: none;
+      align-items: center;
+       }
+
+.id2{
+  padding-left: 10%;
+  display: none;
+  align-items: center;
+    }
+    
+    .id3 {
+  padding-left: 14%;
+  display: none;
+  align-items: center;
+    }       
+
+    .id4 {
+  display: none;
+  align-items: center;
+    }
+    
+    .id5 {
+  display: none;
+  padding-left: 12%;
+  align-items: center;
+  padding-top: 2%;
+    }
+    .id5>img {
+  padding-right: 3%;
+    }
+
+body {background-color: rgb(146, 204, 233);}
+</style>
+<script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+<script src="https://unpkg.com/jquery@2.1.4/dist/jquery.js"></script>
+<script lang="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/0.15.6/xlsx.full.min.js"></script>
+<link rel="stylesheet" type="text/css" href="styles.css">
+
+</head>
+<body>
+<div>
+<img src="https://www.zebra.com/us/en/header/jcr:content/mainpar/header/navigationComponent/logoImage.adapt.1024.png/1425666050944.png" alt="logo" width="15%" height="15%" >      
+<h1>Zebra Line Balancing</h1>
+</div>
+  <div class="optdrop">
+    <button id="excel_file" onclick="show()">Takt Time Results</button>
+    <button id="excel_file2" onclick="show2()">Line Balancing Results</button>
+    <button id="excel_file1" onclick="show1()">Operation Machine Sepration Results</button>
+    <button id="excel_file3" onclick="show3()">Operator Balance Results</button>
+    
+  </div>
+  
+  <div class="optdrop1" id="optdrop1">
+    <button id="result_file" onclick="show4()">Results Summary</button>
+    <button id="result_file2" onclick="show5()">Detailed Results</button>
+    </div>
+
+  <div id="id1" class="id1">
+    {{data3|safe}}
+ </div>
+ <div id="id2" class="id2">
+  {{data1|safe}}
+  </div>
+  <div id="id3" class="id3">
+    {{data2|safe}}
+    {{data|safe}}
+    </div>
+       <div  id="id4" class="id4">
+        {{data4|safe}}      
+    </div>
+    <div id="id5" class="id5">
+      <img width="65%" height="80%"  src="data:image/png;base64,{{ user_image }}" alt="">{{d1a|safe}}      
+    </div>
+        </div>
+        </div>
+<div class="endc">
+<button id="submit" type="submit"> Store in Data Repository </button>
+</div>
+</body>
+</html>
+<script >
+
+    function show() {
+      document.getElementById("id2").style.display="none";
+      document.getElementById("optdrop1").style.display="none";
+      document.getElementById("id4").style.display="none";
+      document.getElementById("id3").style.display="none";
+      document.getElementById("id1").style.display="block";
+      document.getElementById('id5').style.display="none";
+    }
+    function show2() {
+      document.getElementById("id1").style.display="none";
+      document.getElementById("id2").style.display="none";
+      document.getElementById("id4").style.display="none";
+      document.getElementById("id3").style.display="none";
+      document.getElementById("optdrop1").style.display="block";
+      document.getElementById('id5').style.display="none";
+    }
+    function show1() {
+      document.getElementById("id1").style.display="none";
+      document.getElementById("id3").style.display="none";
+      document.getElementById("id4").style.display="none";
+      document.getElementById("optdrop1").style.display="none";
+      document.getElementById("id2").style.display="block";
+      document.getElementById('id5').style.display="none";
+    }
+    function show4() {
+      document.getElementById("id1").style.display="none";
+      document.getElementById("id4").style.display="none";
+      document.getElementById("optdrop1").style.display="block";
+      document.getElementById("id2").style.display="none";
+      document.getElementById("id3").style.display="block";
+      document.getElementById('id5').style.display="none";
+
+    }
+    function show5() {
+      document.getElementById("id1").style.display="none";
+      document.getElementById("optdrop1").style.display="block";
+      document.getElementById("id2").style.display="none";
+      document.getElementById("id3").style.display="none";
+      document.getElementById("id4").style.display="block";
+      document.getElementById('id5').style.display="none";
+
+    }
+    function show3() {
+      document.getElementById("id1").style.display="none";
+      document.getElementById("optdrop1").style.display="none";
+      document.getElementById("id2").style.display="none";
+      document.getElementById("id3").style.display="none";
+      document.getElementById("id4").style.display="none";
+      document.getElementById('id5').style.display="inline-flex";
+      
+    }
+
+
+
+    function readTextFile(file, callback) {
+    var rawFile = new XMLHttpRequest();
+    rawFile.overrideMimeType("application/json");
+    rawFile.open("GET", file, true);
+    rawFile.onreadystatechange = function() {
+        if (rawFile.readyState === 4 && rawFile.status == "200") {
+            callback(rawFile.responseText);
+        }
+    }
+    rawFile.send(null);
+}
+
+//usage:
+
+</script>  
+

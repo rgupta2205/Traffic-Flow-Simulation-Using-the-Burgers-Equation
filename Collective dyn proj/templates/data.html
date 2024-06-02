@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    body {background-color: rgb(146, 204, 233);}
+    
+    h1 {text-align: center;
+    display: inline-block;
+    margin-left: 25%;
+    font-size: 40px;}
+
+    .container2{
+    padding-top: 8%;
+    padding-left: 15%;
+    }
+    .id1 {
+        padding-top: 3%;
+        padding-left: 35%;
+        align-items: center;
+        }
+
+    .id2{
+        padding-left: 10%;
+        display: none;
+        align-items: center;
+        }
+
+
+    tr{
+    background-color: aliceblue;
+    }
+    th{
+    background-color: black;
+    color: aliceblue;
+    }
+
+    .container2>div{
+        color: black;  
+        padding: 14px 30px;
+        text-decoration: none;
+        background-color: white;
+        width: 300px;
+        text-align: center;
+        display: inline-block;
+        border:solid 2px black;
+    }
+
+    .container1{
+        color: black;  
+        padding: 16px 30px;
+        text-decoration: none;
+        width: 300px;
+        text-align: center;
+        display: inline;
+    }
+</style>
+
+</head>
+<body>
+<div>
+<img src="https://www.zebra.com/us/en/header/jcr:content/mainpar/header/navigationComponent/logoImage.adapt.1024.png/1425666050944.png" alt="logo" width="15%" height="15%" >      
+<h1>Zebra Line Balancing</h1>
+</div>
+<div  class="container2">
+    <div id="container2" class="id1">Number of lines = {{n1|safe}}  </div> 
+    {{data|safe}}
+    
+    </div>
+    <div  class="container2">
+        <div id="container2" class="id1">Number of lines = {{n2|safe}}  </div>
+         {{data1|safe}}
+        
+        </div>
+
+<script>
+</script>  
+</body>
+</html>
